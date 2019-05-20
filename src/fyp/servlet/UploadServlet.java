@@ -118,7 +118,8 @@ public class UploadServlet extends HttpServlet {
 				}
 
 				userService.updateIdentify(phone, sname, sidentify);//身份证
-				response.sendRedirect("identify_success.html");
+				request.getRequestDispatcher("IndexServlet2").forward(request,response);
+				//response.sendRedirect("identify_success.html");
 
 			}
 

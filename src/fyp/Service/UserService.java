@@ -31,20 +31,17 @@ public class UserService {
 	}
 	// 登录验证
 		public User login(String phone, String password) {
-			User user=new User();
 			try {
-				List<User>	list = userDao.selectByCondition(phone, password);
-				if(!list.isEmpty()){
-					user = list.get(0);
-				}else {
-					user.setId(-1);
+				List<User> list = userDao.selectByCondition(phone, password);
+				if (!list.isEmpty()) {
+					return list.get(0);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		    return user;
-		}   
-		
+			return null;
+		}
+
 	//根据手机号查询
 		public int selectByPhone(String phone) {
 			int id=0;

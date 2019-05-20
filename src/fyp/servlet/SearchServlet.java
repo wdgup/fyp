@@ -66,7 +66,6 @@ public class SearchServlet extends HttpServlet {
 		if(listage.size()==3){
 			listage.add(user1);
 		}
-		//System.out.println(listage.get(0).getPhone());
 		request.setAttribute("listage", listage);
 		request.getRequestDispatcher("/search2.jsp").forward(request, response);
 		return;

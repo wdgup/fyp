@@ -110,11 +110,11 @@
        System.out.println(user.getPhone());
        id=userService.selectByPhone(phone);  
        if(id>0){
-           response.sendRedirect("findcode2.jsp");
-           flag="";
-           System.out.println("成功"); 
-           session.setAttribute("userPhone",phone); 
-       }  
+		   System.out.println("成功");
+		   session.setAttribute("userPhone",phone);
+		   flag="";
+		   response.sendRedirect("findcode2.jsp");
+       }
        if(id==0){
                flag="<font color=red> 手机号不能为空</font>";        
        }       
