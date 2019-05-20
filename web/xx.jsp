@@ -234,7 +234,10 @@
           font-weight:530;
           color:#130c0e;
           } 
-          
+
+		p .dashed1{
+			font-size: 20px;
+		}
 	</style>
 </head>
 <body>
@@ -310,11 +313,11 @@
             </div>
             <div class="message-list">
                     <br>
-					<p class="dashed1">${listpage3[0].message}</p>
-					<p class="dashed1">${listpage3[1].message}</p> 
-					<p class="dashed1">${listpage3[2].message}</p> 
-					<p class="dashed1">${listpage3[3].message}</p> 
-					<p class="dashed1">${listpage3[4].message}</p> 
+					<p class="dashed1" style="font-size: 20px">${listpage3[0].message}</p>
+					<p class="dashed1" style="font-size: 20px">${listpage3[1].message}</p>
+					<p class="dashed1" style="font-size: 20px">${listpage3[2].message}</p>
+					<p class="dashed1" style="font-size: 20px">${listpage3[3].message}</p>
+					<p class="dashed1" style="font-size: 20px">${listpage3[4].message}</p>
             </div>
         </div>
     </div>

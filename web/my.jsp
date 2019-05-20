@@ -74,6 +74,9 @@
         	cursor: pointer;
         	outline: none;
         }
+		p .dashed1{
+			font-size: 20px;
+		}
 	</style>
 </head>
 <body>

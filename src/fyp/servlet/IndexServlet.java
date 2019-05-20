@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,12 +51,12 @@ public class IndexServlet extends HttpServlet {
 
 		List<Hi>  listHi=null;
 		List<Hi>  listpage=new ArrayList<Hi>();
-		String isLogin=session.getAttribute("isLogin").toString();  //存的时候就非布尔
-		String phone=session.getAttribute("userid").toString();
-		if(isLogin=="true"){
-			listHi=hiService.searchPhone(phone);
-		}else{
+		Object isLogin=session.getAttribute("isLogin");  //存的时候就非布尔
+		Object phone=session.getAttribute("userid");
+		if(Objects.isNull(isLogin)||Objects.isNull(phone)){
 			response.sendRedirect("login.jsp");
+		}else {
+			listHi=hiService.searchPhone(phone.toString());
 		}
 		System.out.println("登录人："+phone);
 		int sum=listHi.size();
@@ -92,7 +93,7 @@ public class IndexServlet extends HttpServlet {
 		List<Concern>  listConcern=null;
 		List<Concern>  listpage2=new ArrayList<Concern>();
 		if(isLogin=="true"){
-			listConcern=concernService.searchPhone(phone);
+			listConcern=concernService.searchPhone(phone.toString());
 		}else{
 			response.sendRedirect("login.jsp");
 		}
@@ -128,7 +129,7 @@ public class IndexServlet extends HttpServlet {
 
 		List<Message>  listMessage=null;
 		List<Message>  listpage3=new ArrayList<Message>();
-		listMessage=messageService.searchPhone(phone);
+		listMessage=messageService.searchPhone(phone.toString());
 		int sum2=listMessage.size();
 		int summin2=0;
 		if(sum2>5){
